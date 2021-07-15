@@ -16,7 +16,7 @@ def get_data():
     train_x = train_x.reshape((train_x.shape[0], 28, 28, 1)).astype(np.float32)
     train_x = train_x / 127.5 - 1.
     train_ds = tf.data.Dataset.from_tensor_slices(train_x)
-    train_ds = train_ds.shuffle(len(train_x)).batch(model.BATCH_SIZE).prefetch(AUTOTUNE)
+    train_ds = train_ds.shuffle(len(train_x)).batch(64).prefetch(AUTOTUNE)
     return train_ds
 
 
@@ -26,7 +26,7 @@ def train():
     gan.compile()
     monitor = callbacks.GANMonitor()
     gan.fit(x=data,
-            batch_size=model.BATCH_SIZE,
+            batch_size=64,
             epochs=5,
             callbacks=[monitor])
 

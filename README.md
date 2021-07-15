@@ -3,4 +3,4 @@ a TensorFlow2 implementation of WGAN with gradient penalty, train.py allows trai
 You can train just like a keras model with fit().\
 And you can pass custom models as generator and critic(discriminator).
 
-Currently implementing support to custom dataset
+support custom critic/generator and cutom dataset
